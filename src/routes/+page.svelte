@@ -65,7 +65,7 @@
     };
 
     const startInertia = () => {
-        if (Math.abs(velocity) < 0.1) return;
+        if (Math.abs(velocity) < 0.01) return;
 
         velocity *= FRICTION;
         updateIndex(startIndex + velocity);
@@ -140,18 +140,19 @@
     aria-hidden="true"
 >
     <div class="flex">
-        <div class="grow px-8">
+        <div class="min-w-0 grow px-8">
             <ul class="list w-full divide-y divide-base-content/10 font-mono">
                 {#each visibleRows as word, i (i)}
                     <li
-                        class="py-2 transition-colors hover:bg-base-200"
+                        class="flex py-2 transition-colors hover:bg-base-200"
                         on:click={showDefinition(word)}
                     >
                         <span class="text-base-content/30">
                             {(startIndex + i).toString().padStart(5, "0")}
                         </span>
-                        &nbsp;
-                        <span class="font-bold">{word.split(",")[0]}</span>
+                        <span class="ml-4 min-w-0 flex-1 truncate font-bold">
+                            {word}
+                        </span>
                     </li>
                 {/each}
             </ul>
