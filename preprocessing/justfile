@@ -1,0 +1,7 @@
+# https://github.com/jwodder/whitaker2json
+
+download:
+    python whitaker2json.py -z http://downloads.sourceforge.net/project/wwwords/Whitaker/dictpage.zip -o data/dictpage.json
+
+transform:
+    python transform_dictionary.py data/dictpage.json data/dictionary.json
