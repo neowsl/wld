@@ -13,7 +13,7 @@ def main():
     with open(args.infile, "r", encoding="utf-8") as f:
         raw_data = json.load(f)
 
-    simplified_list = []
+    res = {}
 
     for entry in raw_data:
         base_forms = entry.get("base_forms") or []
@@ -22,10 +22,10 @@ def main():
 
         definition = entry.get("definition", "No definition available")
 
-        simplified_list.append({"word": word_string, "definition": definition})
+        res[word_string] = definition
 
     with open(args.outfile, "w", encoding="utf-8") as f:
-        json.dump(simplified_list, f, indent=4)
+        json.dump(res, f, indent=4)
 
 
 if __name__ == "__main__":
