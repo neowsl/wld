@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-    <title>ArrayList English Dictionary</title>
+    <title>Whitaker's Latin Dictionary</title>
     <link rel="icon" href={favicon} />
 </svelte:head>
 {@render children()}
